@@ -4,9 +4,10 @@ COPY pom.xml .
 RUN mvn dependency:go-offline
 
 COPY src ./src
-RUN mvn package -DskipTests
+RUN mvn clean package -DskipTests
 
-FROM openjdk:17-jre-slim
+FROM openjdk:17-jdk-slim
 WORKDIR /app
-COPY --from=build /app/target/lanchonete.jar .
-CMD ["java", "-jar", "lanchonete.jar"]
+COPY --from=build /app/target/lanchonete-0.0.1-SNAPSHOT.jar .
+EXPOSE 8081
+CMD ["java", "-jar", "lanchonete-0.0.1-SNAPSHOT.jar"]
