@@ -11,5 +11,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    environment:
+      - POSTGRES_HOST=database_postgres
+      - POSTGRES_PASSWORD=pgpassword
     depends_on:
       - database_postgres
