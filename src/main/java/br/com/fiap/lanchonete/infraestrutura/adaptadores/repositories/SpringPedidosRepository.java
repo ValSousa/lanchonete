@@ -10,5 +10,4 @@ import br.com.fiap.lanchonete.infraestrutura.adaptadores.entidades.PedidoEntity;
 @Qualifier("pedidosPostgresRepository")
 public interface SpringPedidosRepository extends JpaRepository<PedidoEntity, Long> {
 
-
 }
